@@ -1,0 +1,45 @@
+Instalamos typescript -> npm install typescript -D
+
+En el package.json añadimos el script de tsc que ejecutaremos el binario de tsc, esto lo que hace es transformar los ficheros de 
+typescript a javascript.
+
+Inicializamos el proyecto con npm run tsc -- --init
+
+Nos crea un arhivo de configuracion llamado tsconfig.json :
+    outdir -> donde nos va a guardar los archivos compilados suele sere ./build
+    noUnusedLocals -> nos dice si tenemos alguna variable local sin utilizar
+    noUnusedParameters -> nos dice si tenemos algun parametro  sin utilizar
+    noImplicitReturns -> si lo tenemos en true nuestras funciones siempre tendran que tener un return
+    noFallthroughCasesInSwitch -> nos obligara a poner en todos los switch case  un return o un break
+    esModuleInterop -> Para que funcionen tanto ECMAScript modules como commonjs
+
+Instalamos express para crear nuestra api -> npm install express -E
+
+Siempre que instalemos tipos de typescript tienen que ser como paquetes de desarrollo 
+Instalamos los types para express -> npm install @types/express -D
+
+TypeScript tien la excepcion que si tu pones el parametro de una funccion como _
+
+Instalamos ts-node-dev que es una mezcla entre ts-node y nodemon => npm install ts-node-dev -D
+
+Por defecto TypeScript no es capaz de resolover Jsons en las opciones tsconfig.json
+añadimos "resolveJsonModule": true
+
+Definimos los tipos y la intefaz de nuestro dailyEntry en el type.d.ts 
+
+Recomendacion de linter ts-standard -> npm install ts-standard -D
+
+Y añadimos al package.json: 
+                        "eslintConfig": {
+                            "parserOptions": {
+                            "project": "./tsconfig.json"
+                            },
+                            "extends": [
+                            "./node_modules/ts-standard/eslintrc.json"
+                            ]
+                        }
+Hay un tipo de datos en typescript que se llama enum en el que puedes enumerar
+diferentes valores que puede tener una estrucutra.
+
+Al añadir enum el archivo no tiene que ser tipo .d.ts tiene que pasar a ser solamente .ts
+Ya que los .d son solo para definiciones y al compilar no se pasan a javascript, pero los enum si
